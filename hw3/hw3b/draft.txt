@@ -1,0 +1,4 @@
+2 points if all test cases pass
+1 point if <= 2 test cases fail
+
+-1 if zip file had wrong name

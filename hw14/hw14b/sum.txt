@@ -1,0 +1,144 @@
+Write a method that prints a tree sideways. For example, the tree in figure 1 would be printed:
+
+George
++--Edward VIII
++--George VI
+|  +--Elizabeth II
+|  |  +--Charles
+|  |  |  +--William
+|  |  |  +--Harry
+|  |  +--Anne
+|  |  |  +--Peter
+|  |  |  |  +--Savannah
+|  |  |  +--Zara
+|  |  +--Andrew
+|  |  |  +--Beatrice
+|  |  +--Edward
+|  |     +--Louise
+|  |     +--Severn
+|  +--Margreth
++--Mary
++--Henry
+|  +--Richard
+...
+Pay attention to the | lines and note that they stop after the last node (e.g. look at the line of Louise).
+
+Hint:Use a recursive helper
+
+public void print(String prefix)
+in the Node class, where prefix is the pattern of | that precedes a line, such as
+"|  |     "
+in front of Louise.
+
+The TreeReader reads a tree in the format (data child1 child2 ... childn). For example:
+
+     Fred
+    /    \
+Wilma   Barney
+should be typed in from command line as: (Fred (Wilma) (Barney)) Be aware of the parentheses around each node, including the leaves.
+
+Draft: Print a tree with a root and two leaves correctly.
+
+Use the following files:
+
+TreeDemo.java
+
+import java.util.Scanner;
+
+public class TreeDemo 
+{
+   public static void main(String[] args) 
+   {
+      TreeReader r = new TreeReader(new Scanner(System.in));
+      Tree t = r.read();
+      t.print();
+    }
+}
+TreeReader.java
+
+import java.util.Scanner;
+
+public class TreeReader 
+{
+   private String previousToken;
+   private Scanner in;
+
+   public TreeReader(Scanner in) 
+   {
+      this.in = in;
+      in.useDelimiter("");
+   }
+
+   public Tree read() 
+   {
+      String token = nextToken();
+      if (!token.equals("(")) 
+      {
+         previousToken = token;
+         return null;
+      } 
+      else 
+      {
+         previousToken = null;
+      }
+      token = nextToken();
+      Tree t = new Tree(token);
+      Tree s = null;
+      while ((s = read()) != null) 
+      {
+         t.addSubtree(s);
+      }
+      token = nextToken();
+      if (!token.equals(")")) 
+      {
+         return null;
+      }
+      return t;
+   }
+
+   private String nextToken() 
+   {
+      if (previousToken != null) 
+      {
+         String r = previousToken;
+         previousToken = null;
+         return r;
+      }
+      String s = skipWhitespace();
+      if ("()".contains(s)) 
+      {
+         return s;
+      }
+      while (in.hasNext()) 
+      {
+         String next = in.next();
+         if (!Character.isLetter(next.charAt(0))) 
+         {
+            if (!Character.isWhitespace(next.charAt(0))) 
+            {
+               previousToken = next;
+            } 
+            else 
+            {
+               previousToken = null;
+            }
+            return s;
+         }
+         s += next;
+      }
+      return s;
+   }
+
+   private String skipWhitespace() 
+   {
+      while (in.hasNext()) 
+      {
+         String next = in.next();
+         if (!Character.isWhitespace(next.charAt(0))) 
+         {
+            return next;
+         }
+      }
+      return "";
+   }
+}

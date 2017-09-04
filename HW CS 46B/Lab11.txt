@@ -1,0 +1,128 @@
+Monil Gandhi(Driver)/ Aurthur (Scribe)
+PART A)
+3) public void setUp() 
+   {
+      sampleList = new LinkedList();
+      sampleList.addFirst("Mary");
+      sampleList.addFirst("had");
+      sampleList.addFirst("a");
+      sampleList.addFirst("little");
+      sampleList.addFirst("lamb");
+   }
+   @Test
+   public void testGet() 
+   {
+      Object result = "had;
+       assertEquals(result, sampleList.get(3) );
+   }
+}
+4) its gives an output of null.
+5)My get method is 
+public Object get(int n)
+	{
+		Node current = first;
+		for (int i = 0; i < n ; i++)
+		{
+			current = current.next;
+		}
+		return current.data;
+	}
+6)The test cases does pass because we implememt the get method.
+7)@Test (expected=IndexOutOfBoundsException.class) 
+   public void test1()
+   {
+	   Object result = "had";
+	      assertEquals( result, sampleList.get(-1) );
+   }
+@Test (expected=IndexOutOfBoundsException.class) 
+   public void test2()
+   {
+	   Object result = "IndexOutOfBoundsException error";
+	   assertEquals( result, sampleList.get(6) );
+   }
+8) I pass both the test cases as I specified the error in the test case.
+9)I pass the test case for n > length
+10) we take the counter and count the elements inside list and then say n > count.
+11)int count = 0;
+		Node current = first;
+		if(n < 0)
+		{
+			throw new IndexOutOfBoundsException();
+		}
+		while(current != null)
+		{
+			current = current.next;
+			count ++;
+		}
+		if(n > count)
+		{
+			throw new IndexOutOfBoundsException();
+		}
+		
+		for (int i = 0; i < n ; i++)
+		{
+			current = current.next;
+		}
+		return current.data 
+12)I pass the test case.
+Part B)
+1)  @Test
+   public void test3()
+   {
+	   Object result = "lazy";
+	   sampleList.add(4, result);
+	   assertEquals("had", sampleList.get(3));
+	   assertEquals("lazy", sampleList.get(4));
+	   assertEquals("Mary", sampleList.get(5));
+   }
+2) on the paper
+3) we can use a while loop and a counter to get the element at n and then add the new node before that element.
+4) Node done = first;
+		int counter = 0;
+		for (int i = 0; i < n -1 ; i++)
+		{
+			done = done.next;
+		}
+		Node weKnow = done;
+		Node newNode = new Node();
+		newNode.data = result;
+		Node nnext = weKnow.next;
+		newNode.next = nnext;
+		weKnow.next = newNode;
+		newNode = nnext;
+	}
+5) Yes I passed the test case of add.
+6) what if n = 1 and the element is added at the first posotion.
+7)@Test
+   public void  test4()
+   {
+	   Object result = "Monil";
+	   sampleList.add(1, result);
+	   assertEquals("Monil", sampleList.get(0));
+   }
+   8) yes it does pass.
+   9)if(n == 1)
+		{
+			addFirst(result);
+		}
+10) Yes they all passed.
+Part C)
+Scribe
+Part D)
+
+
+1. The last one is failing
+
+2. Previous should return little because little was before lamb. It points to the lamb.It does not remove anything.
+
+3. After the first time the program goes through, the first and last variables return nodes.
+
+4. The last reference is wrong.
+
+5. If it is at the last position, you call the remove last. And then make last equal to the previous one
+
+6. My test are all passed
+
+7. I think it is easier using this so you can just run the whole thing at once. 
+
+

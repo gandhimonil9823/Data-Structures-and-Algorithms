@@ -1,0 +1,10 @@
+<div><p>When demolishing a string, in each step, one can either remove the first or the last letter. For example, if the string is <code>amber</code>, then you can break it into <code>a</code> and <code>mber</code> or <code>ambe</code> and <code>r</code>. </p>
+  <p>There is a cost to each step. If the letter that was broken off is a consonant, the cost is the length of the remaining string. If the letter that was broken off is a vowel, the step is free. Also, a string of length 1 has no demolition cost.</p>
+  <p>Your task is to find the cheapest way of demolishing a string. For example, the cost of demolishing </p>
+  <pre>amber -&gt; ambe r -&gt; a mbe -&gt; mb e -&gt; m b -&gt; m</pre>
+  <p>is 4 + 0 + 0 + 1 + 0 = 5</p>
+  <p>but the cost of</p>
+  <pre>amber -&gt; a mber -&gt; mbe r -&gt; mb e -&gt; m b -&gt; m</pre>
+  <p>is 0 + 3 + 0 + 1 + 0 = 4</p>
+  <p>In the draft, only print the cheapest cost. In the final, show it, breaking ties towards choosing the first letter.</p>
+</div>

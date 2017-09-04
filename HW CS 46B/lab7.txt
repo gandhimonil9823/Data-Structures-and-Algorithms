@@ -1,0 +1,31 @@
+Monil Gandhi(Driver) /Rishab Gupta(Scribe)
+
+Part A) 
+
+Scribe
+
+Part B)
+
+3) it changes to testlab7 NOHEAD
+
+6)By double clicking on the version
+
+Part C)
+
+1) sf_SharedWithLubuntu  user
+
+2) Facing a problem with the virtual box. Not able to access the USB. 
+
+Summary
+
+The two people make changes to one of their files which is the clone of the original one, and then transported to the other persons computer through the USB drive. This process takes place through the push and pull mechanism.
+
+Part D)
+
+2) Cloning into 'lab7'...
+Warning: Permanently added the RSA host key for IP address '192.30.252.128' message is diplayed. 
+
+6) The three rules of git are
+a) Always pull before you push
+b)  Always use -a -m with git commit.
+c) Add any files that you create to the tracking set with git add.

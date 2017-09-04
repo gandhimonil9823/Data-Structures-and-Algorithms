@@ -1,0 +1,51 @@
+
+Monil Gandhi(Scribe)/Rishabh Gupta(Driver)
+
+Part A
+
+1)Because the code imports - import javax.swing.JFileChooser;
+
+2) A	 GUI has opened, giving us the path to any file in the VM.
+
+3) A command - Enter command has been shown and told us to select between five options
+
+Part B
+
+1) Yes I can find the phone number 408-924-5085
+
+2) a) 2
+     Diaz
+     Phone
+     5
+   b) the program shows that there is no entry
+
+
+Part C
+
+(Driver)
+
+
+
+
+
+
+
+Part D
+
+1) the lines have more indentation.
+
+
+2) the code for the lowercase c is 6e, the code for b is the second last line having the number c
+
+4) (setq-default indent-tabs-mode nil)  will turn off tabs in emacs
+ 
+Par E
+
+1) see line endings at the end of each line
+
+3) the terminal displays all the files that are found like the ExhibitC and the ExhibitA
+
+
+
+
+

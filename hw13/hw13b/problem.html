@@ -1,0 +1,6 @@
+<div><p>Provide an iterator for the <code>Bag</code> class from the preceding homework.</p>
+  <p>Start with my solution. The iterator should traverse the elements in the
+  same order as the <code>toString</code> method, starting with the newest inserted element, yielding it as many times as it occurs in the bag, then moving on to the next element.</p>
+  <p>For the draft, just implement <code>hasNext</code> and <code>next</code>. For the final, implement <code>remove</code>. Also, for the final, throw a <code>ConcurrentModificationException</code> when an iterator method is called on a bag that has been modified through a bag method or <em>another</em> iterator.</p>
+  <p>To track these modifications, use an instance variable <code>modCount</code>. Increment it with any <code>add</code>, <code>remove</code>, and removal via an iterator. When an iterator is constructed, copy the <code>modCount</code> into an iterator. If an iterator is called and the <code>modCount</code> of the bag has increased without the iterator's knowledge, then throw the exception. However, if this iterator caused the mutation (via <code>remove</code>), no exception should be thrown.</p>
+</div>

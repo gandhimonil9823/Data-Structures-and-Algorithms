@@ -1,0 +1,8 @@
+ls = lists the directory
+1s -a = shows all the files including the hidden ones
+pwd = /home/user the home directory
+
+for the exam - cd /home/user/Downloads/
+            
+              javac Unpack.java
+              java Unpack midterm1.html.ser

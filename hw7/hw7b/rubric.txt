@@ -1,0 +1,9 @@
+Draft and final: -1 for each JUnit Fail
+
+Final: Take off 2 points if the student calls
+
+          for (int i = 0; i < a.length; i++)
+
+instead of
+
+          for (int i = 0; i < a.length; i += 2)

@@ -1,0 +1,88 @@
+Write a method of the BinarySearchTree class
+
+Comparable smallest()
+that returns the smallest element of a tree.
+
+Also add a recursive helper method to the Node class.
+
+Draft: Return the smallest element from a binary search tree which has just a root and two child nodes.
+
+Use the following files:
+
+SmallestTester.java
+
+import java.util.*;
+
+/**
+   A test program for the smallest method of the SmallestsBinarySearchTree class.
+*/
+public class SmallestTester
+{  
+   public static void main(String[] args)
+   {  
+      SmallestBinarySearchTree names = new SmallestBinarySearchTree();
+      names.add("Romeo");
+      names.add("Juliet");
+      names.add("Tom");
+
+      System.out.println(names.smallest());
+      System.out.println("Expected: Juliet");
+   }
+}
+SmallestTester2.java
+
+import java.util.*;
+
+/**
+   A test program for the smallest method of the SmallestBinarySearchTree class
+*/
+public class SmallestTester2
+{  
+   public static void main(String[] args)
+   {  
+      SmallestBinarySearchTree names = new SmallestBinarySearchTree();
+      names.add("Romeo");
+      names.add("Juliet");
+      names.add("Tom");
+      names.add("Dick");
+      names.add("Harry");
+
+      System.out.println(names.smallest());
+      System.out.println("Expected: Dick");
+   }
+}
+SmallestTester3.java
+
+import java.util.*;
+
+/**
+   A test program for the smallest method of the SmallestBinarySearchTree class
+*/
+public class SmallestTester3
+{  
+   public static void main(String[] args)
+   {  
+      SmallestBinarySearchTree nums = new SmallestBinarySearchTree();
+      for (int i = 50; i < 150; i++)
+         nums.add(17 * i % 100);
+
+      System.out.println(nums.smallest());
+      System.out.println("Expected: 0");
+   }
+}
+SmallestTester4.java
+
+import java.util.*;
+
+/**
+   A test program for the smallest method of the SmallestBinarySearchTree class
+*/
+public class SmallestTester4
+{  
+   public static void main(String[] args)
+   {  
+      SmallestBinarySearchTree names = new SmallestBinarySearchTree();
+      System.out.println(names.smallest());
+      System.out.println("Expected: null");
+   }
+}

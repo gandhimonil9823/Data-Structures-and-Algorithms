@@ -1,0 +1,90 @@
+Monil Gandhi(Scribe)/ Rishab Gupta(Driver)
+Part A)
+1) After 1000000 the program runs slowly.
+2) Very slow it almost stopped working.
+3) n            t
+   1            1s
+   2            2.851s
+   3            8.761s
+   4            27.164s
+
+4) It is the shape of a parabola.
+5) Because the time is running parabolic to n. 
+ 
+6) The timing data will change, it will take more time to access the LinkedList then the arrayList.
+7) n      t
+   1      1s
+   1.5    3.537s
+    2     7.596s
+   2.5    14.766s
+
+
+Part B)
+
+1) $389 is the median
+2)In collection we can use the min and max methods.
+  In list we can use the remove method.
+3)Double smallest = Collections.min(lst);
+	 Double largest = Collections.max(lst);
+	 lst.remove(smallest);
+	 lst.remove(largest);
+4) 0.4996904689578436.
+5) Because we can access every element in the array and see whether it is smallest or largest and then find the median.
+6)the time for 10000 is 3.504s and for 100000 is 4min 35.752
+7) The pseudocode for the largest method is 
+
+int largest = lst.get(0);
+for(i->1 ; i < lst.length)
+{
+int input = lst.get(i);
+if( input > largest)
+{
+largest = input;
+}
+8) int smallestPosition = lst.get(0);
+     int largestPosition = lst.get(0);
+     for (int i = 1; i < lst.size(); i++)
+     {
+          int small_large = lst.get(i)
+        if (small_largest < largestPosition) smallestPosition = small_large;
+        if (small_largest > largestPosition) largestPosition = small_large;
+     }
+     int size = lst.size();
+     lst.set(largestPosition, lst.get(size - 1));
+     lst.set(smallestPosition, lst.get(size - 2));
+     lst.remove(size - 1);
+     lst.remove(size - 2);
+      }
+9) the execution of 10000 is 1.196s and the execution of 100000 is 1m 8.464s
+10) The efficiency with the big-O is that iterates the array getting the smallest and the largest and then placing it into the last two places.
+
+Part D)
+
+1) just divide the length/ 2 and length /2 + 1 if it is even and divide the length + 1 / 2 if it is odd.
+2)Collections.sort is the method.
+3)public static double median(List<Double> lst)
+   {
+      double num = 0;
+    Collections.sort( lst);
+     
+         if(lst.size() / 2 == 0 )
+         {
+             double another_no = lst.get(lst.size()/2) + lst.get(lst.size()/ 2 + 1);
+             num = another_no/2; 
+         }
+         else
+         {
+             num = lst.get(lst.size()/2);
+         }
+         return num;
+   }
+4) the execution time for 10000 is 0.569s and that for 100000 is 0.912s
+5) the Big-O efficiency is O(n).
+
+Part E)
+
+1) The median is in the first part because most of the elements are in the first part and therefore having the major probability.
+2) just divide the length/ 2 and length /2 + 1 if it is even and divide the length + 1 / 2 if it is odd.
+3) Big-O(n) is the efficiency of the select(k).
+4)Driver.
+

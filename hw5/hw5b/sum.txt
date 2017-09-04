@@ -1,0 +1,36 @@
+When demolishing a string, in each step, one can either remove the first or the last letter. For example, if the string is amber, then you can break it into a and mber or ambe and r.
+
+There is a cost to each step. If the letter that was broken off is a consonant, the cost is the length of the remaining string. If the letter that was broken off is a vowel, the step is free. Also, a string of length 1 has no demolition cost.
+
+Your task is to find the cheapest way of demolishing a string. For example, the cost of demolishing
+
+amber -> ambe r -> a mbe -> mb e -> m b -> m
+is 4 + 0 + 0 + 1 + 0 = 5
+
+but the cost of
+
+amber -> a mber -> mbe r -> mb e -> m b -> m
+is 0 + 3 + 0 + 1 + 0 = 4
+
+In the draft, only print the cheapest cost. In the final, show it, breaking ties towards choosing the first letter.
+
+Use the following file:
+
+DemolitionDemo.java
+
+import java.util.Scanner;
+
+public class DemolitionDemo
+{
+   public static void main(String[] args)
+   {
+      Scanner in = new Scanner(System.in);
+      while (in.hasNextLine())
+      {
+         String line = in.nextLine();
+         Demolition demo = new Demolition(line);
+         System.out.println(demo);
+         System.out.println("Cost: " + demo.getCost());
+      }
+   }
+}

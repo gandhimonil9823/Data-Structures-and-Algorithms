@@ -1,0 +1,18 @@
+<div>
+<p>You can often use a stack or queue to avoid recursion. Implement
+this algorithm for computing all permutations of a string <code>str</code> without
+recursion.</p>
+<ol>
+   <li>Add <code>"|" + str</code> to the queue.</li>
+   <li>While the queue is not empty,
+   <ul>
+      <li>Remove the element at the front. It has the form s | t. (That is, s is the substring before the | and t is the substring after the |.)</li>
+      <li>For each letter c in t, add s + c + "|" + (t with c removed) to the queue</li>
+      <li>However, if the | is at the end (that is, t is empty), add s to the result.</li>
+   </ul>
+   </li>
+</ol>
+<p><strong>Using this algorithm</strong>, implement a method</p>
+<pre>public static ArrayList&lt;String&gt; permutations(String s)</pre>
+<p>Draft: Your program should work for a string of length ≤ 2.</p>
+</div>

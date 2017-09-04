@@ -1,0 +1,5 @@
+-2 for each failing test case
+
+-2 if the size1 method doesn't follow links
+-2 if the size2 method doesn't call a recursive helper function
+-2 if the addFirst/removeFirst/add/remove don't update currentSize

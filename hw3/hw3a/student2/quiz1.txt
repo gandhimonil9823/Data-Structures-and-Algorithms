@@ -1,0 +1,14 @@
+Who was the inventor of Java?
+James Gosling
+
+In which country was the inventor of Java born?
+Australia
+*Canada
+Denmark
+United States
+
+Which programming languages use { } for blocks?
+*Java
+Python
+*C++
+Scheme

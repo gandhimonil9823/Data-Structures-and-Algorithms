@@ -1,0 +1,95 @@
+Monil Gandhi(Scribe)/ Arthur Hoang(Driver)
+
+Part A)
+
+2) The algorithm prints the max no of similar simultaneously occuring integers.
+
+3)It is going to trouble our algorithm. For example, for the array [4,4,3,2,2,5,5,5].
+
+4)When j == length, the algorithm increments j and the j - i > max condition is satisfied and the algorithm sets the max to j - i.
+
+Part B)
+
+1)  Driver.
+
+Part C)
+
+1)a)We are not dividing p into polygons but creating two arraylists and proving the arraylists with the points of th polygon.
+b) Both polygons are not of length n/2
+
+2)Driver
+
+3) On page.
+
+4) On page.
+
+5) One of the error is I wrote the the array variable as array, I could have written "a".
+
+6)create ArrayList<Puzzle> solutions
+
+      if p is solved --> then add p to solutions
+
+      else:
+         initialize string variable firstLetter to p.firstLetter()
+         if firstLetter is not empty --> then go through for-loop from 0 to 9
+            inside for-loop: if p does not contain i --> then set p equal to p.replace(firstLetter, i) and solvePuzzle(p)
+
+      return solutions
+
+ = Reworded it
+
+   
+ 
+ if( p is solved)
+{
+  array.add(p);
+}
+else
+{
+firstletter = p.firstLetter();
+}
+if( firstLetter > 0)
+{
+for(i = 0 to i =9)
+{
+if(!p.contains(i))
+{
+p = p.replace(firstLetter,i);
+solverPuzzle(p);
+
+7) On paper.
+
+8)On paper.
+
+Part D)
+
+1) length - 1;
+
+2)sum  = sum + a.get(i);
+
+3) for
+{
+if(a.get(i) < 0)
+{
+return i;
+return;
+}
+}
+retutn i;
+a.indexOf(i)
+
+4)if(str.contains("$"))
+{
+return st.IndexOf("$")
+}
+
+5) scanner
+
+while(in.hasNextDouble)
+{
+int ii  = in.nextDouble().replace(",","");
+return ii;
+} can do parsedouble also
+
+Part G) Driver
+

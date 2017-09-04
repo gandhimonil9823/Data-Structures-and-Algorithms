@@ -1,0 +1,9 @@
+Draft:
+
+1 point for each test case (total 2)
+
+Final:
+
+2 points for each test case (total 4)
+2 points for try/finally or try-with-resources around Scanner
+

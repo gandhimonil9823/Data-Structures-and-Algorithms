@@ -1,0 +1,4 @@
+-2 points per failed test case.
+
+But give zero points if the program doesn't use a Queue<String>, 
+and if it doesn't put a "|" in the strings that are put in the queue.

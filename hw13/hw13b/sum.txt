@@ -1,0 +1,297 @@
+Provide an iterator for the Bag class from the preceding homework.
+
+Start with my solution. The iterator should traverse the elements in the same order as the toString method, starting with the newest inserted element, yielding it as many times as it occurs in the bag, then moving on to the next element.
+
+For the draft, just implement hasNext and next. For the final, implement remove. Also, for the final, throw a ConcurrentModificationException when an iterator method is called on a bag that has been modified through a bag method or another iterator.
+
+To track these modifications, use an instance variable modCount. Increment it with any add, remove, and removal via an iterator. When an iterator is constructed, copy the modCount into an iterator. If an iterator is called and the modCount of the bag has increased without the iterator's knowledge, then throw the exception. However, if this iterator caused the mutation (via remove), no exception should be thrown.
+
+Use the following files:
+
+Test1.java
+
+import org.junit.*;
+import static org.junit.Assert.*;
+import java.util.Iterator;
+
+public class Test1
+{
+   @Test public void test1()
+   {
+      Bag bag = new Bag();
+      bag.add(1);
+      bag.add(2);
+      bag.add(3);
+
+      Iterator iter = bag.iterator();
+      assertTrue(iter.hasNext());
+      assertEquals(3, iter.next());
+      assertTrue(iter.hasNext());
+      assertEquals(2, iter.next());
+      assertTrue(iter.hasNext());
+      assertEquals(1, iter.next());
+      assertFalse(iter.hasNext());
+   }
+
+   @Test public void test2()
+   {
+      Bag bag = new Bag();
+      bag.add(1);
+      bag.add(2);
+      bag.add(1);
+      bag.add(2);
+      bag.add(3);
+      bag.add(1);
+
+      Iterator iter = bag.iterator();
+      assertTrue(iter.hasNext());
+      assertEquals(3, iter.next());
+      assertTrue(iter.hasNext());
+      assertEquals(2, iter.next());
+      assertTrue(iter.hasNext());
+      assertEquals(2, iter.next());
+      assertTrue(iter.hasNext());
+      assertEquals(1, iter.next());
+      assertTrue(iter.hasNext());
+      assertEquals(1, iter.next());
+      assertTrue(iter.hasNext());
+      assertEquals(1, iter.next());
+      assertFalse(iter.hasNext());
+   }
+}
+   
+Test2.java
+
+import org.junit.*;
+import static org.junit.Assert.*;
+import java.util.Iterator;
+import java.util.ConcurrentModificationException;
+import java.util.NoSuchElementException;
+
+public class Test2
+{
+   @Test public void testRemoveSolitary()
+   {
+      Bag bag = new Bag();
+      bag.add(1);
+      bag.add(2);
+      bag.add(3);
+
+      Iterator iter = bag.iterator();
+      assertTrue(iter.hasNext());
+      assertEquals(3, iter.next());
+      assertTrue(iter.hasNext());
+      assertEquals(2, iter.next());
+      assertTrue(iter.hasNext());
+      iter.remove();
+      assertEquals(1, iter.next());
+      assertFalse(iter.hasNext());
+      iter = bag.iterator();
+      assertTrue(iter.hasNext());
+      assertEquals(3, iter.next());
+      assertTrue(iter.hasNext());
+      assertEquals(1, iter.next());
+      assertFalse(iter.hasNext());
+   }
+
+   @Test public void testRemoveRepeated()
+   {
+      Bag bag = new Bag();
+      bag.add(1);
+      bag.add(2);
+      bag.add(1);
+      bag.add(2);
+      bag.add(3);
+      bag.add(1);
+
+      Iterator iter = bag.iterator();
+      assertTrue(iter.hasNext());
+      assertEquals(3, iter.next());
+      assertTrue(iter.hasNext());
+      assertEquals(2, iter.next());
+      assertTrue(iter.hasNext());
+      assertEquals(2, iter.next());
+      iter.remove();
+      assertTrue(iter.hasNext());
+      assertEquals(1, iter.next());
+      assertTrue(iter.hasNext());
+      assertEquals(1, iter.next());
+      assertTrue(iter.hasNext());
+      assertEquals(1, iter.next());
+      assertFalse(iter.hasNext());
+      iter = bag.iterator();
+      assertTrue(iter.hasNext());
+      assertEquals(3, iter.next());
+      assertTrue(iter.hasNext());
+      assertEquals(2, iter.next());
+      assertTrue(iter.hasNext());
+      assertEquals(1, iter.next());
+      assertTrue(iter.hasNext());
+      assertEquals(1, iter.next());
+      assertTrue(iter.hasNext());
+      assertEquals(1, iter.next());
+      assertFalse(iter.hasNext());
+   }
+
+   @Test public void removeFirst()
+   {
+      Bag bag = new Bag();
+      bag.add(1);
+      bag.add(2);
+      bag.add(1);
+      bag.add(2);
+      bag.add(3);
+      bag.add(1);      
+
+      Iterator iter = bag.iterator();
+      assertTrue(iter.hasNext());
+      assertEquals(3, iter.next());
+      iter.remove();
+      iter = bag.iterator();
+      assertTrue(iter.hasNext());
+      assertEquals(2, iter.next());
+      assertTrue(iter.hasNext());
+      assertEquals(2, iter.next());
+      assertTrue(iter.hasNext());
+      assertEquals(1, iter.next());
+      assertTrue(iter.hasNext());
+      assertEquals(1, iter.next());
+      assertTrue(iter.hasNext());
+      assertEquals(1, iter.next());
+      assertFalse(iter.hasNext());
+   }
+
+   @Test public void removeLast()
+   {
+      Bag bag = new Bag();
+      bag.add(3);
+      bag.add(1);
+      bag.add(2);
+      bag.add(1);
+      bag.add(2);
+      bag.add(1);      
+
+      Iterator iter = bag.iterator();
+      assertEquals(2, iter.next());
+      assertEquals(2, iter.next());
+      assertEquals(1, iter.next());
+      assertEquals(1, iter.next());
+      assertEquals(1, iter.next());
+      assertEquals(3, iter.next());
+      iter.remove();
+      iter = bag.iterator();
+      assertEquals(2, iter.next());
+      assertEquals(2, iter.next());
+      assertEquals(1, iter.next());
+      assertEquals(1, iter.next());
+      assertEquals(1, iter.next());
+      assertFalse(iter.hasNext());
+   }
+
+   @Test(expected=IllegalStateException.class) public void callRemoveTwice()
+   {
+      Bag bag = new Bag();
+      bag.add(1);
+      bag.add(2);
+      bag.add(1);
+      bag.add(2);
+      bag.add(3);
+      bag.add(1);      
+
+      Iterator iter = bag.iterator();
+      iter.next();
+      iter.next();
+      iter.remove();
+      iter.remove();
+   }
+
+   @Test(expected=NoSuchElementException.class) public void callNextAtEnd()
+   {
+      Bag bag = new Bag();
+      bag.add(1);
+      bag.add(2);
+      bag.add(1);
+      bag.add(2);
+      bag.add(3);
+      bag.add(1);      
+
+      Iterator iter = bag.iterator();
+      assertEquals(3, iter.next());
+      assertEquals(2, iter.next());
+      assertEquals(2, iter.next());
+      assertEquals(1, iter.next());
+      assertEquals(1, iter.next());
+      assertEquals(1, iter.next());
+      assertFalse(iter.hasNext());
+      iter.next(); // Should throw exception
+   }
+
+   @Test(expected=ConcurrentModificationException.class) public void concurrentMod1()
+   {
+      Bag bag = new Bag();
+      bag.add(1);
+      bag.add(2);
+      bag.add(1);
+      bag.add(2);
+      bag.add(3);
+      bag.add(1);      
+   
+      Iterator iter = bag.iterator();
+      assertEquals(3, iter.next());
+      bag.add(4);
+      iter.next(); 
+   }   
+
+   @Test(expected=ConcurrentModificationException.class) public void concurrentMod2()
+   {
+      Bag bag = new Bag();
+      bag.add(1);
+      bag.add(2);
+      bag.add(1);
+      bag.add(2);
+      bag.add(3);
+      bag.add(1);      
+   
+      Iterator iter = bag.iterator();
+      assertEquals(3, iter.next());
+      bag.add(4);
+      iter.remove(); 
+   }   
+
+   @Test(expected=ConcurrentModificationException.class) public void concurrentMod3()
+   {
+      Bag bag = new Bag();
+      bag.add(1);
+      bag.add(2);
+      bag.add(1);
+      bag.add(2);
+      bag.add(3);
+      bag.add(1);      
+   
+      Iterator iter = bag.iterator();
+      Iterator iter2 = bag.iterator();
+      assertEquals(3, iter.next());
+      assertEquals(3, iter2.next());
+      iter.remove();
+      iter2.next(); 
+   }   
+
+   @Test(expected=ConcurrentModificationException.class) public void concurrentMod4()
+   {
+      Bag bag = new Bag();
+      bag.add(1);
+      bag.add(2);
+      bag.add(1);
+      bag.add(2);
+      bag.add(3);
+      bag.add(1);      
+   
+      Iterator iter = bag.iterator();
+      Iterator iter2 = bag.iterator();
+      assertEquals(3, iter.next());
+      assertEquals(3, iter2.next());
+      iter.remove();
+      iter2.remove(); 
+   }   
+   
+}

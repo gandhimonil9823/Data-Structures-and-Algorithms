@@ -1,0 +1,142 @@
+Implement an iterator for the BinarySearchTree class that visits the nodes in sorted order. When you call iter.next() while iter.hasNext() returns false (there are no elements to iterate over), you should throw an IllegalStateException. For the draft, make it work for a tree with one node.
+
+Hint: In the constructor, keep pushing left nodes on a stack until you reach null. In each call to next, deliver the top of the stack as the visited node, but first push the left nodes in its right subtree.
+
+Use the following files:
+
+BinarySearchTreeTester.java
+
+import java.util.Iterator;
+
+public class BinarySearchTreeTester 
+{
+   
+   public static void main(String[] args) 
+   {
+      BinarySearchTree t = new BinarySearchTree();
+      t.add("D");
+	
+      Iterator iter = t.iterator();
+      while (iter.hasNext()) 
+      {
+         Object data = iter.next();
+         System.out.print(data + " ");
+      }
+      System.out.println();
+      System.out.println("Expected: D");
+		
+      BinarySearchTree t2 = new BinarySearchTree();
+      t2.add(1);
+      t2.add(5);
+      t2.add(7);
+      t2.add(4);
+		
+      Iterator iter2 = t2.iterator();
+      while (iter2.hasNext()) 
+      {
+         Object data = iter2.next();
+         System.out.print(data + " ");
+      }
+      System.out.println();
+      System.out.println("Expected: 1 4 5 7");		
+   }
+}
+BinarySearchTreeTester1.java
+
+import java.util.Iterator;
+
+public class BinarySearchTreeTester1 
+{
+   public static void main(String[] args) 
+   {
+      BinarySearchTree t = new BinarySearchTree();
+      t.add("D");
+      t.add("B");
+      t.add("A");
+      t.add("C");
+      t.add("F");
+      t.add("E");
+      t.add("I");
+      t.add("G");
+      t.add("H");
+      t.add("J");
+	    
+      Iterator iter = t.iterator();
+      while (iter.hasNext()) 
+      {
+         Object data = iter.next();
+         System.out.print(data + " ");
+      }
+      System.out.println();
+      System.out.println("Expected: A B C D E F G H I J");
+      try {
+         iter.next();
+         System.out.println("Shouldn't be here");
+      }
+      catch (IllegalStateException e) 
+      {
+         System.out.println("IllegalStateException");
+      }
+      catch (Throwable e)
+      {
+         System.out.println("Shouldn't be here");
+      }
+		
+      System.out.println("Expected: IllegalStateException");
+		
+   }
+	
+}
+BinarySearchTreeTester2.java
+
+import java.util.Iterator;
+
+
+public class BinarySearchTreeTester2
+{
+   public static void main(String[] args) 
+   {
+      BinarySearchTree t = new BinarySearchTree();
+      t.add("D");
+      t.add("B");
+      t.add("A");
+      t.add("C");
+      t.add("F");
+      t.add("E");
+      t.add("I");
+      t.add("G");
+      t.add("H");
+      t.add("J");
+	    
+      Iterator iter = t.iterator();
+      while (iter.hasNext()) 
+      {
+         Object data = iter.next();
+         System.out.print(data + " ");
+      }
+      System.out.println();
+      System.out.println("Expected: A B C D E F G H I J");
+		
+      BinarySearchTree t2 = new BinarySearchTree();
+		
+      iter = t2.iterator();
+      System.out.println(iter.hasNext());
+      System.out.println("Expected: false");
+		
+      try 
+      {
+         iter.next();
+         System.out.println("Shouldn't be here");
+      }
+      catch (IllegalStateException e) 
+      {
+         System.out.println("IllegalStateException thrown.");
+      }
+      catch (Throwable e)
+      {
+         System.out.println("Shouldn't be here");
+      }
+
+      System.out.println("Expected: IllegalStateException thrown.");
+   }
+}

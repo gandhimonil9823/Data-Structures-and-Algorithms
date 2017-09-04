@@ -1,0 +1,2 @@
+-2 for each failing test case
+Loses all point if Node's smallest methods doesn't use recursion

@@ -1,0 +1,9 @@
+Manifest-Version: 1.0
+Created-By: 1.8.0_31 (Oracle Corporation)
+
+Name: report.html
+SHA-256-Digest: 0BRiOZ49bONiIpLUaC4cLIWXqwnOMYF7/Vnpn7onzzw=
+
+Name: Polygon.java
+SHA-256-Digest: V6CzCkCqUxgdTK9BqJURjA1t/Uikz+9q4II0dm8NYPI=
+

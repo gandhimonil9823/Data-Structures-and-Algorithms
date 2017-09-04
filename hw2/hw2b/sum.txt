@@ -1,0 +1,30 @@
+Make the Point class implement the Comparable interface. To compare two points, first compare their x-coordinates. If they differ, the point with the smaller x is deemed the smaller. If the x-coordinates are the same, compare the y-coordinates. The point with the smaller y-coordinate is then deemed the smaller. If the x- and y-coordinates are the same, the points are equal (duh).
+
+In the draft, use the Comparable interface without a type parameter. In the final version, provide the appropriate type parameter (see Special Topic 14.4).
+
+The draft should simply return 0 in all cases.
+
+Use the following file:
+
+PointTester.java
+
+public class PointTester
+{
+   public static void main(String[] args)
+   {
+      Point p1 = new Point(3, 4);
+      Point p2 = new Point(2, 4);
+      Comparable<Point> p3 = new Point(3, 2);
+
+      System.out.println(p1.compareTo(p2) < 0);
+      System.out.println("Expected: false");
+      System.out.println(p2.compareTo(p1) < 0);
+      System.out.println("Expected: true");
+      System.out.println(p1.compareTo((Point) p3) < 0);
+      System.out.println("Expected: false");
+      System.out.println(p3.compareTo(p1) < 0);
+      System.out.println("Expected: true");
+      System.out.println(p1.compareTo(new Point(3, 4)) == 0);
+      System.out.println("Expected: true");
+   }
+}

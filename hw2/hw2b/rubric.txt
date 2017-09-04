@@ -1,0 +1,8 @@
+Draft
+
+Passes tester: 2 points
+
+Final
+
+6 points, -2 for each failed test case
+-1 for any deprecation warnings

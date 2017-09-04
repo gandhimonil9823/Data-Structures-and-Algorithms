@@ -1,0 +1,9 @@
+Draft:
+
+-1 point for each failure
+
+Final:
+
+-2 points for each failure
+
+

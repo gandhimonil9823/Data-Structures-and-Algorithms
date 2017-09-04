@@ -1,0 +1,45 @@
+                     LAB 10
+
+Monil Gandhi (Scribe)/Arthur Hoang (Driver)
+
+Part A)
+
+2) \t for tab, \n for next line and \ for carriage return
+3) [ ^a-z A-Z 0-9 ]
+4) Driver
+5) Driver
+6) Tree map and a hashSet.
+7) Driver
+8)We get every character in the treemap along with its line number
+9)We reset the line number with the most recent time it shows up. 
+10) We get a null pointer exception
+11) For the first time we see the identifier, we do not have a previous value for it
+12) You check if that key is already in the treemap
+13) You should create a new treeset
+14 -19) Driver
+
+Part B)
+
+1) printAllFiles(File dir)
+a = new list
+add dir to list
+for i = 0 ;i< a.lenth;i++ 
+{
+if
+{
+ a is a file print it
+}
+else
+{ printAllFiles(a(i)) 
+}
+}
+B2import java.util.Stack;
+
+public class printfiles {
+
+	Stack theStack = new Stack();
+	theStack.push(dir);
+	
+}
+2)index, manifest, beans, faces, sun, web, ProblemBean, QuizBean, messages, messages_de
+3)Done Driver

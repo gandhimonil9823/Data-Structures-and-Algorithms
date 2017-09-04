@@ -1,0 +1,1 @@
+Passes PuzzleTester (1 point >= 2 tests pass, 2 points for all): 

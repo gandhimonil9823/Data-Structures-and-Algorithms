@@ -1,0 +1,19 @@
+Draft: -1 for each failing test case
+Final: -1 for each failing test case
+
+Give 0 points if the student added, removed, or changed instance variables of the set or iterator
+
+public class Set
+{
+   TreeMap<Integer, LinkedList<Object>> buckets;
+   // No other instance variables
+   ...
+   class SetIterator implements Iterator
+   {
+      private Iterator<LinkedList<Object>> bucketIterator;
+      private LinkedList<Object> currentBucket;
+      private ListIterator<Object> current; 
+      // No other instance variables
+      ...
+   }
+}

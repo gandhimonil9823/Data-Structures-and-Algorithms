@@ -1,0 +1,7 @@
+Draft: 
+
+2 point for passing the test
+
+Final:
+
+-1 point for each failing test 

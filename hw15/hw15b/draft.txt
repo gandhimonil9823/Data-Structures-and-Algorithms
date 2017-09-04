@@ -1,0 +1,2 @@
+-2 if draft doesn't pass tester
+-2 if draft doesn't use static addNode method that returns a Node

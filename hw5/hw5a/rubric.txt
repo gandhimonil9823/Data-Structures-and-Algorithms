@@ -1,0 +1,4 @@
+Draft: -1 per failed test case
+Final: -2 per failed test case
+-2 if the student removed points from the polygon's list of points
+-6 if the solution didn't recursively construct a Polygon and measured its area.

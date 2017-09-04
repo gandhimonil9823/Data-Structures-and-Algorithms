@@ -1,0 +1,49 @@
+For the draft, implement a class FirstDigitDistribution as described in Exercise P10.4 of your textbook. For the final, modify the display method of that class to produce a histogram, as described in Exercise P10.1.
+Use the following files:
+
+RandomSequence.java
+
+import java.util.Random;
+
+public class RandomSequence implements Sequence
+{
+   private Random generator = new Random(42);
+
+   public int next()
+   {
+      return generator.nextInt();
+   }
+}
+Sequence.java
+
+public interface Sequence
+{
+   int next();
+}
+SequenceDemo.java
+
+public class SequenceDemo
+{
+   public static void main(String[] args)
+   {
+      FirstDigitDistribution dist1 = new FirstDigitDistribution();
+      dist1.process(new SquareSequence(), 1000);
+      dist1.display();
+      System.out.println();
+      FirstDigitDistribution dist2 = new FirstDigitDistribution();
+      dist2.process(new RandomSequence(), 1000);
+      dist2.display();
+   }
+}
+SquareSequence.java
+
+public class SquareSequence implements Sequence
+{
+   private int n;
+
+   public int next()
+   {
+      n++;
+      return n * n; 
+   }
+}

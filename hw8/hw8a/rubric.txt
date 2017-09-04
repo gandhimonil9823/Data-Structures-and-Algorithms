@@ -1,0 +1,13 @@
+Draft:
+
+Open the report.html file with a text editor. Do you see a meta field with a github URL? If not, -1 point
+
+-1 for each JUnit error
+
+Final:
+
+Open the report.html file with a text editor. Do you see a meta field with a github URL? If not, -3 points
+
+-1 for each JUnit error
+
+-6 points if they don't call Arrays.sort with an array of Element objects

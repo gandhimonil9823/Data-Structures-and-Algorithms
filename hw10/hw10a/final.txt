@@ -1,0 +1,9 @@
+-2 points for each failing test case
+
+Give ZERO points if the student does any of the following:
+- Call any method inside reverseFirstN
+- Call new Node inside reverseFirstN 
+- Access or modify the data field of any node inside reverseFirstN
+
+
+

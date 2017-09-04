@@ -1,0 +1,168 @@
+ Monil Gandhi (Driver) / Arthur Hoang(Scribe)
+
+PART A
+1) By using the isExit method in the Maze class.
+2) The code for my escape method is
+ public void escape()
+   {
+	   Robot worry = new Robot(maze,row,column);
+	   if( worry.atExit())
+	   {
+		   
+	   }
+   }
+3) Because there is a wall construted to the right of the robot.
+4) The ASC11 sketch              * * * * *
+                               @=||-- 
+                              *  *  *  *  *
+                                                                              
+5)  Scribe
+6) if(worry.canMove())
+	   {
+		   worry.turnRight();
+}
+7) Because the robot turned right from a corner of the other wall to his right.
+9) 
+	   Robot worry = new Robot(maze,row,column);
+	   if( worry.atExit())
+	   {
+		  
+	   }
+	   
+	   if(worry.canMove())//if there is a wall turn left
+	   {
+		   worry.move();
+		   
+		  
+	   }
+	   else 
+	   {
+		   worry.turnLeft();
+		   
+		   
+	   }
+	   worry.turnRight();
+	   if(worry.canMove())
+	   {
+		  worry.move();
+		  worry.escape();
+	   }
+
+
+PART B
+
+2)      if (atExit()) return true;
+      for (int i = 0;  i <= 3; i++ ) // this loop makes the robot check all possible direction
+      {
+         turnRight();
+         if (canMove())
+         {
+            Robot cloned = clone();
+            cloned.visited.get(i);
+            if (cloned.escape2())
+            {
+               visited.addAll(visited);
+               return true;
+            }
+         }
+      }
+      return false; 
+
+PART C
+
+1) All the answers written by the scribe.
+
+PART D
+1) After 37 the programs runs slowly giving the outputs slowly as compared to the first 36 numbers
+2) 701408733 is the answer of fib(42) + fib(43).
+3) The program keeps running and stops at fib(14).
+4) Whwn you run debug from the menu the console window pops up    with the fib values.
+5) In the call stack the value of n and first are seen. The value of n = 10.
+
+
+
+
+
+
+PART E
+1) import java.util.Scanner;
+import java.util.logging.Logger;
+
+public class RecursiveFib
+{  
+   public static void main(String[] args)
+   {  
+      Scanner in = new Scanner(System.in);
+      System.out.print("Enter n: ");
+      int n = in.nextInt();
+      for (int i = 1; i <= n; i++)
+      {
+         long f = fib(i);
+         System.out.println("fib(" + i + ") = " + f);
+      }
+      
+   }
+
+   /**
+      Computes a Fibonacci number.
+      @param n an integer
+      @return the nth Fibonacci number
+   */
+   public static long fib(int n)
+   {  
+      long result;
+      if (n <= 2) 
+      {
+	 result = 1; 
+      }
+      else 
+      {
+     Logger.getGlobal().info("Entering fib. n=" + n);;
+	 long first = fib(n - 1);
+	 long second = fib(n - 2);
+	 result = first + second;
+	 Logger.getGlobal().info("Exiting fib. return=" + result);;
+
+      }
+      return result;
+   }
+}
+2) Enter n: 10
+fib(1) = 1
+fib(2) = 1
+Sep 25, 2015 9:57:20 AM RecursiveFib fib
+INFO: Entering fib. n=3
+Sep 25, 2015 9:57:20 AM RecursiveFib fib
+INFO: Exiting fib. return=2
+fib(3) = 2
+Sep 25, 2015 9:57:20 AM RecursiveFib fib
+INFO: Entering fib. n=4
+Sep 25, 2015 9:57:20 AM RecursiveFib fib
+INFO: Entering fib. n=3
+Sep 25, 2015 9:57:20 AM RecursiveFib fib
+This is the output after the program is run.
+
+3) The output shows each recrusive call made to the numbers and therefore demonstrates the inefficiency of the method.
+
+
+4) the code for the memoization 
+long result;
+      if (knownFibonacciValues[n] > 0) 
+      {
+	 return knownFibonacciValues[n];
+      }
+      else 
+      {
+    	  if(n <=2)
+    	  {
+    		  result = 1;
+    	  }
+    	  else{
+     Logger.getGlobal().info("Entering fib. n=" + n);;
+	 long first = fib(n - 1);
+	 long second = fib(n - 2);
+	 result = first + second;
+	 Logger.getGlobal().info("Exiting fib. return=" + result);;
+}
+      return result;
+   }

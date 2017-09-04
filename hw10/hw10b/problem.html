@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+      "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+  <title></title>
+</head>
+
+<body>
+<p>Add a method <code>size1</code> to our implementation of the LinkedList
+class that computes the number of elements in the list by following links and
+counting the elements until the end of the list is reached.
+</p>
+
+<p>Add a method <code>size2</code> that computes the size by calling a
+recursive helper method</p>
+<pre>private static int sizeHelper(Node start)</pre>
+
+<p>Hint: If <code>start</code> is null, then the size is 0. Otherwise, it is
+one larger than the size of <code>start.next</code>.
+</p>
+
+<p>Finally, add an instance variable <code>currentSize</code>. Modify the
+<code>addFirst</code>, <code>removeFirst</code> of the linked list and <code>add/remove</code> methods of the list iterator
+to update the <code>currentSize</code> variable so that it always contains the
+correct size. Define a method <code>size3</code> that simply returns the value
+of this instance variable.
+
+</p>
+
+<p><b>Note:</b> Method size1 and size2 are not allowed to use the variable
+<code>currentSize</code>..</p>
+
+<p>Draft: Implement <code>size1</code> and have the others return 0.</p>
+
+</body>
+</html>

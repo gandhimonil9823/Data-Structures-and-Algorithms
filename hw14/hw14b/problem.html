@@ -1,0 +1,42 @@
+<p>Write a method that prints a tree sideways. For example, the tree in figure 1 would be printed:<pre>
+George
++--Edward VIII
++--George VI
+|  +--Elizabeth II
+|  |  +--Charles
+|  |  |  +--William
+|  |  |  +--Harry
+|  |  +--Anne
+|  |  |  +--Peter
+|  |  |  |  +--Savannah
+|  |  |  +--Zara
+|  |  +--Andrew
+|  |  |  +--Beatrice
+|  |  +--Edward
+|  |     +--Louise
+|  |     +--Severn
+|  +--Margreth
++--Mary
++--Henry
+|  +--Richard
+...
+</pre></p>
+<p>Pay attention to the | lines and note that they stop after the last node (e.g. look at the line of Louise).</p>
+
+<p><b>Hint:</b>Use a recursive helper
+
+<pre>public void print(String prefix)</pre>
+
+in the Node class, where <code>prefix</code> is the pattern of | that precedes a line, such as</p><pre>"|  |     "</pre><p>in front of Louise.</p>
+
+<p>The TreeReader reads a tree in the format (data child1 child2 ... childn). For example:</p>
+<pre>
+     Fred
+    /    \
+Wilma   Barney
+</pre>
+
+<p>should be typed in from command line as: (Fred (Wilma) (Barney))
+Be aware of the parentheses around each node, including the leaves.</p>
+
+<p>Draft: Print a tree with a root and two leaves correctly.</p>

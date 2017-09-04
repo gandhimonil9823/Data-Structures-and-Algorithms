@@ -1,0 +1,2 @@
+Program compiles with tester (max 1 point): 
+Test cases, 1 point each (max 5 points): 

@@ -1,0 +1,94 @@
+Add a method void reverseFirstN(int n) to our implementation of the LinkedList class that reverses the first n links in a list. Implement this method by directly rerouting the links. Do not use an iterator. Do not construct any new nodes. Do not copy the data values. Do not add any other methods.
+
+If n is greater than or equal to the size of the list, all elements are reversed. Otherwise, only the first n elements are reversed.
+
+Example: If lst is [A, B,C, D], then after calling lst.reverseFirstN(3), it should be [C, B, A, D].
+Draft. Make your method work for the case n = 2.
+
+Use the following files:
+
+ReverseTest.java
+
+import org.junit.*;
+import static org.junit.Assert.*;
+
+public class ReverseTest
+{  
+   @Test public void test()
+   {
+      LinkedList names = new LinkedList();
+      names.addFirst("Tom");
+      names.addFirst("Romeo");
+      names.addFirst("Harry");
+      names.addFirst("Dick");
+      names.addFirst("Bill");
+
+      names.reverseFirstN(2);
+      ListIterator iter = names.listIterator();
+      String[] expecteds = "Dick Bill Harry Romeo Tom".split(" ");
+      int i = 0;
+      while (iter.hasNext()) 
+      {
+         assertEquals(expecteds[i], iter.next());
+         i++;
+      }
+   }
+}
+ReverseTest2.java
+
+import org.junit.*;
+import static org.junit.Assert.*;
+
+public class ReverseTest2
+{  
+   public static void test(int n, String expected)
+   {
+      LinkedList names = new LinkedList();
+      names.addFirst("Tom");
+      names.addFirst("Romeo");
+      names.addFirst("Harry");
+      names.addFirst("Dick");
+      names.addFirst("Bill");
+
+      names.reverseFirstN(n);
+      ListIterator iter = names.listIterator();
+      String[] expecteds = expected.split(" ");
+      int i = 0;
+      while (iter.hasNext()) 
+      {
+         assertEquals(expecteds[i], iter.next());
+         i++;
+      }
+   }
+
+   @Test public void test0()
+   { 
+      test(0, "Bill Dick Harry Romeo Tom");
+   }
+
+   @Test public void test1()
+   { 
+      test(1, "Bill Dick Harry Romeo Tom");
+   }
+
+   @Test public void test3()
+   { 
+      test(3, "Harry Dick Bill Romeo Tom");
+   }
+
+   @Test public void test4()
+   {
+      test(4, "Romeo Harry Dick Bill Tom");
+   }
+
+
+   @Test public void test5()
+   {
+      test(5, "Tom Romeo Harry Dick Bill");
+   }
+
+   @Test public void test6()
+   {
+      test(6, "Tom Romeo Harry Dick Bill");
+   }
+}

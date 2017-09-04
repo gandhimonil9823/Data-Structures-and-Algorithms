@@ -1,0 +1,8 @@
+3 points per passing test case
+
+-1 point if MultiChoiceQuestion overrides checkAnswer
+-1 point if MultiChoiceQuestion overrides setAnswer
+-1 point if MultiChoiceQuestion overrides setText
+
+
+-2 if zip file had wrong name

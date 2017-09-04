@@ -1,0 +1,75 @@
+Reimplement the addNode method of the Node class in BinarySearchTree as a static method of the BinarySearchTree class:
+
+private static Node addNode(Node parent, Node newNode)
+If parent is null, return newNode. Otherwise, recursively add newNode to parent and return parent.
+
+Your implementation should replace the three null checks in the add and original addNode methods with just one null check.
+
+Draft: Insert a single node into an empty tree
+
+Use the following files:
+
+AddTester1.java
+
+import java.util.*;
+
+/**
+   This program tests the AddBinarySearchTree class.
+*/
+public class AddTester1
+{ 
+   public static void main(String[] args)
+   {  
+      AddBinarySearchTree t = new AddBinarySearchTree();
+      t.add("A");
+      System.out.println(t.toString());
+      System.out.println("Expected: ( . A . )");
+   }
+}
+
+AddTester2.java
+
+import java.util.*;
+
+/**
+   This program tests the AddBinarySearchTree class.
+*/
+public class AddTester2
+{ 
+   public static void main(String[] args)
+   {  
+      AddBinarySearchTree t = new AddBinarySearchTree();
+      t.add("B");
+      t.add("A");
+      t.add("C");
+      System.out.println(t.toString());
+      System.out.println("Expected: ( ( . A . ) B ( . C . ) )");
+   }
+}
+
+AddTester3.java
+
+import java.util.*;
+
+/**
+   This program tests the AddBinarySearchTree class.
+*/
+public class AddTester3
+{ 
+   public static void main(String[] args)
+   {  
+      AddBinarySearchTree t = new AddBinarySearchTree();
+      t.add("D");
+      t.add("B");
+      t.add("A");
+      t.add("C");
+      t.add("F");
+      t.add("E");
+      t.add("I");
+      t.add("G");
+      t.add("H");
+      t.add("J");
+      System.out.println(t.toString());
+      System.out.println("Expected: ( ( ( . A . ) B ( . C . ) ) D ( ( . E . ) F ( ( . G ( . H . ) ) I ( . J . ) ) ) )");
+   }
+}

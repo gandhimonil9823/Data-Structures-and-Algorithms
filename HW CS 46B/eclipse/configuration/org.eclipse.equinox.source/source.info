@@ -1,0 +1,7 @@
+#encoding=UTF-8
+#version=1
+org.eclipse.egit.core.source,4.1.0.201509280440-r,plugins/org.eclipse.egit.core.source_4.1.0.201509280440-r.jar,-1,false
+org.eclipse.egit.mylyn.ui.source,4.1.0.201509280440-r,plugins/org.eclipse.egit.mylyn.ui.source_4.1.0.201509280440-r.jar,-1,false
+org.eclipse.egit.ui.source,4.1.0.201509280440-r,plugins/org.eclipse.egit.ui.source_4.1.0.201509280440-r.jar,-1,false
+org.eclipse.jgit.pgm.source,4.1.0.201509280440-r,plugins/org.eclipse.jgit.pgm.source_4.1.0.201509280440-r.jar,-1,false
+org.eclipse.jgit.source,4.1.0.201509280440-r,plugins/org.eclipse.jgit.source_4.1.0.201509280440-r.jar,-1,false

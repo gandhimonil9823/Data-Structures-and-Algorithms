@@ -1,0 +1,10 @@
+Draft:
+
+-2 points for failure
+
+Final:
+
+-2 points for each failure
+-2 for missing screen capture (part D)
+
+

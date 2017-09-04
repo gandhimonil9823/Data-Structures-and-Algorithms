@@ -1,0 +1,5 @@
+Test inputs (1 per test case, max 4 points).
+Program calls in.useDelimiter("") and in.next().charAt(0) (max 2 points).
+
+-2 if zip file had wrong name
+

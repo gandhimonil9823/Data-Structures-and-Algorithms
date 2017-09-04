@@ -1,0 +1,2 @@
+-2 for each failing test
+-6 if the student uses nested loops instead of recursion

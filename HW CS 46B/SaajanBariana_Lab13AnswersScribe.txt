@@ -1,0 +1,60 @@
+Saajan Bariana (Scribe)
+Noor (Driver)
+
+Part A:
+1 Done
+2. K
+3. n-k-1
+4. 1 and 1
+5. 2 and 5. It is the same
+6. S(10)- 16,796 and S(20)- 6564120420
+7. It takes so long because of the recursion
+8. Done
+
+Part B:
+1. import java.util.Random;
+
+public class Trees2
+{
+   private static Random generator = new Random();
+   
+   public static void main(String[] args)
+   {
+       BinaryTree t = randomTree(6);
+       System.out.println(t);
+   }
+
+   public static BinaryTree randomTree(int n)
+   {
+      if (n == 0) return null;
+      if (n == 1) return new BinaryTree(n);
+      int k = generator.nextInt(n);
+      return new BinaryTree(n, new BinaryTree(k), new BinaryTree(n-k-1));
+   }
+}
+2. It prints BinaryTree@4e81d783
+3. Done
+4. It is not a binary search tree because it is not sorted
+5.  public String toString()
+   {
+	return toString(root);   
+   }
+   public static String toString(Node n)
+   {
+	   if (n == null) { return ". "; }
+	      else 
+	      { 
+	         return "( " + toString(n.left) 
+	            + n.data + " " 
+	            + toString(n.right) + ") "; 
+	      }   
+   }
+   6. ( ( . 0 . ) 6 ( . 5 . ) ) 
+   7. Done
+   8. Done
+   9. ( ((. 1 .) 3 (. 1 .))  6 (. 2 (. 1 .)) )
+   
+   Part C
+   
+   1. Done
+   2. Done

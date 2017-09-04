@@ -1,0 +1,149 @@
+Monil Gandhi(Scribe) /Rishab Gupta(Driver)
+
+Part A)
+1) ~/Downloads/lab2/src$ AddressBookDemo /home/user/Downloads/lab2/src/ deptdir.txt
+
+2)  It gives an error of no entry.
+
+Part B)
+1)
+remove(String name, String Key)
+{
+try
+{
+for( check whether the name equals the name an the key equals the key in the lists)
+{
+save the value in a string;
+return the value;
+remove the person at that particular index by using the remove method.
+}
+catch
+{
+exception;
+}
+
+2) one of the errors that could arise is UnsupportedOperationException and the other that could arise is the IndexOutOfBoundsException
+
+Part C) 
+
+3) After running the ArrayListAddressBookTest as JUnit Test, we see a green bar with:-
+      ArrayListAddressBookTest [Runner : JUnit4] 90.019s)
+
+
+Part D)
+
+2) A) It should return null if the value is not present.
+ B) Driver
+
+3) Driver
+
+4) The above three test cases failed because the remove methd was not yet imlemented.
+
+
+Part E)
+ try
+	   {
+		   for(int i = 0; i < items.size();i++)
+		   {
+			   if(name.equals(items.get(i).getName())&& key.equals(items.get(i).getKey()))
+			   {
+				   String iu = items.get(i).getValue();
+				   items.remove(iu);
+			   }
+		   
+		   
+		   }
+	   }
+	   catch (UnsupportedOperationException ex)
+	   {
+		   System.out.println("Not supported yet.");
+		   
+	   }
+	return null;
+
+2) one of the cases failed
+
+3) Yes I know my code is now correct, because it passed all test cases.
+
+Part F)
+
+1) My remove is
+
+
+try
+	   {
+		   for(int i = 0; i < items.size();i++)
+		   {
+			   if(name.equals(items.get(i).getName())&& key.equals(items.get(i).getKey()))
+			   {
+				   String iu = items.get(i).getValue();
+				    items.remove(iu);
+				   Item last = items.get(items.size() -1);
+				   String theLast = last.getValue();
+				   theLast = iu;
+		        }
+		  }
+return null;
+}
+
+2) Yes, all my test cases passed.
+
+Part G)
+
+1) The code of my remove method is
+
+for(int i = 0; i < items.size();i++)
+		   {
+         if(name.equals(items.get(i).getName())&&                  key.equals(items.get(i).getKey()))
+			   {
+				   String iu = items.get(i).getValue();
+				    items.remove(iu);
+				   Item last = items.get(items.size() -1);
+				   String theLast = last.getValue();
+				   theLast = iu;
+				    throw new NoSuchElementException();
+				   
+			   }
+                 }
+	   
+	  return null;
+      
+   }   
+2) No, the one where we had to add and then remove the element failed.
+
+3) The code of my test case is
+
+@Test
+	public void checkingTheException()
+	{
+		AddressBook dir4 = new ArrayListAddressBook();
+		assertNull(dir4.remove("Mobil", "nightmare"));
+     }
+4) All the test cases pass. The exception is not trigered.
+
+5)We fix up the test case by adding 
+expected=IndexOutOfBoundsException.class after @Test command
+
+6) The test shows the exception. It is because now we let the asset method know that there is an exception being processed.
+
+Part H)
+
+1) The methods which were provided by eclipse were BeforeClass, AfterClass, Before, After.
+
+2)  I dont have any local variables of the AddressBook and AddressBookDemo class which I can assign as instance variables.
+
+3) I failed the test where I assigned the exception, but i fixed the test by removing the exception.
+
+4) Nothing the test cases pass.
+
+5) The new test case dos not run, it gives a FileNotFoundException because it is not able to locate the deptdir.txt file.
+
+6)I used eclipse so i copied the file to the workspace and provided the class path to the load method.
+
+7) The program runs without any exception.
+
+8)C:\Users\gandhimonil\Desktop\CS 46B Workspace\lab5 is the directory displayed that is the directy of the project.
+
+
+
+

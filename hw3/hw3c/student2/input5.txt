@@ -1,0 +1,6 @@
+Fred. And Wilma.
+Fred.. And Wilma.
+Fred...and Wilma.
+Fred....and Wilma.
+Fred and Wilma.
+Fred  and   Wilma.

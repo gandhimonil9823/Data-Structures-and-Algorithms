@@ -1,0 +1,6 @@
+Draft: -1 per failed test case
+-2 if there is no recursive call
+
+Final: -2 per failed test case
+-6 if the student didn't construct two Demolition objects in the 
+Demolition constructor and set one of them to the restDemolition instance variable

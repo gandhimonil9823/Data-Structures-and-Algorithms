@@ -1,0 +1,4 @@
+<p>Implement an iterator for the BinarySearchTree class that visits the nodes in sorted order. When you call iter.next() while iter.hasNext() returns false (there are no elements to iterate over), you should throw an IllegalStateException. For the draft, make it work for a tree with one node.</p>
+
+<p>Hint: In the constructor, keep pushing left nodes on a stack until you reach null. In each call to next, deliver the top of the stack as the visited node, but first push the left nodes in its right subtree.</p>
+

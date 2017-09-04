@@ -1,0 +1,18 @@
+7.1 Arrays
+(section content)
+7.1.2 Array References
+(section content)
+7.1.1 Declaring and Using Arrays
+(section content)
+7.1.3 Using Arrays with Methods
+(section content)
+7.1.4 Partially Filled Arrays
+(section content)
+7.2 The Enhanced For Loop
+(section content)
+7.3 Common Array Algorithms
+(section content)
+7.3.1.2 Sum and Average Value
+(section content)
+7.3.1 Filling
+(section content)

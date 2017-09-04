@@ -1,0 +1,9 @@
+Draft:
+
+1 point per passing test case
+
+Final:
+
+2 points for the first test case (FileNotFoundTester.java) 
+2 points each for the next two test cases (salaries.txt, salaries2.txt)
+

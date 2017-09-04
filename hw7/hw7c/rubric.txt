@@ -1,0 +1,11 @@
+-2 if tester fails
+
+Take off ALL points if solution only works for arrays up to a given length (i.e. if someone hardcodes cases for 2, 4, 8, 16)
+
+Final:
+No or insufficient pseudocode comments: -2
+(There should be at least one comment for each for, while, and if)
+No javadoc comments: -1
+-1 for each test case failure
+
+Take off ALL points if solution only works for arrays up to a given length (i.e. if someone hardcodes cases for 2, 4, 8, 16)

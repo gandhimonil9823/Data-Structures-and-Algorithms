@@ -1,0 +1,11 @@
+Draft: 
+
+-1 for each failing test case
+
+Final:
+
+-1 for each failing test case
+
+-6 if they don't implement SelectionSort, using the minimumPosition and swap methods
+
+

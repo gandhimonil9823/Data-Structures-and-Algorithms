@@ -1,0 +1,15 @@
+In which country was the inventor of C++ born?
+Australia
+Canada
+*Denmark
+United States
+
+Which of these classes implement the Comparable interface?
+*java.lang.String
+*java.util.Date
+java.util.Scanner
+*java.io.File
+java.util.ArrayList
+
+What was the name of the remote control designed by the original Java team?
+*7

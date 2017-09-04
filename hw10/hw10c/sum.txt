@@ -1,0 +1,232 @@
+Those Java list iterators are a bit weird, with the “you can't call remove unless you previously called next or previous” rule. And that's a Java thing. In the rest of the known universe (for example, in C++), one can call remove as often as one likes.
+
+Those iterators are much better. They follow the advice of Section 8.2.3 “Separating Accessors and Mutators” of your textbook. They separate movement from lookup. The next method moves the iterator and returns nothing. The get method yields what's at the iterator. The remove method removes what's at the iterator, causing it to point to the next element. And sure, then you can call it again, and it removes that element. The add method adds before the iterator (just like with Java iterators). The atEnd method states if the iterator is already at the end of the list (in which case get/remove/next should throw a NoSuchElementException).
+
+It's simple. There is just one catch. It only works with doubly-linked lists. Not a problem in 2015. Or 1995. So, go ahead and implement that.
+
+Tip: This is much simpler than the complex implementation of the iterator in Worked Example 16.1. Don't even try to start with that. Instead, simply set position to the current position of the iterator. It can point to any of the elements of the list, or it could be null, in which case it points past the end.
+
+For simplicity, we omit the set, previous, and hasPrevious methods.
+
+For the draft, just implement next, atEnd, and get. You don't need to know anything about doubly-linked lists to do that.
+
+Use the following files:
+
+Test1.java
+
+import org.junit.*;
+import static org.junit.Assert.*;
+
+public class Test1
+{  
+   @Test public void test1()
+   {
+      LinkedList names = new LinkedList();
+      names.addLast("Fred");
+      names.addLast("Wilma");
+      Iterator iter = names.iterator();
+      assertEquals("Fred", iter.get());
+      assertFalse(iter.atEnd());
+      iter.next();
+      assertEquals("Wilma", iter.get());
+      assertEquals("Wilma", iter.get());
+      iter.next();
+      assertTrue(iter.atEnd());      
+   }
+
+   @Test public void test0()
+   {
+      LinkedList names = new LinkedList();
+      Iterator iter = names.iterator();
+      assertTrue(iter.atEnd());      
+   }
+}
+Iterator.java
+
+public interface Iterator
+{
+   /**
+      Moves the iterator to the next element.
+   */
+   void next();
+
+   /**
+      Gets the element at the iterator position.
+      @return the element
+   */
+   Object get();
+   
+   /**
+      Tests if the iterator is at the end of the list.
+      @return true if the iterator is at the end of the list.
+   */
+   boolean atEnd();
+
+   /**
+      Adds an element before the iterator position.
+      @param element the element to add
+   */
+   void add(Object obj);
+
+   
+   /**
+      Removes the element at the iterator position and 
+      moves the iterator to the next element.
+   */
+   void remove();
+}
+Test2.java
+
+import org.junit.*;
+import static org.junit.Assert.*;
+
+public class Test2
+{  
+   @Test public void addFirst()
+   {
+      LinkedList names = new LinkedList();
+      names.addLast("Fred");
+      names.addLast("Wilma");
+      Iterator iter = names.iterator();
+      iter.add("Barney");
+      Iterator iter2 = names.iterator();
+      assertEquals("Barney", iter2.get());
+      iter2.next();
+      assertEquals("Fred", iter2.get());
+      iter2.next();
+      assertEquals("Wilma", iter2.get());
+      iter2.next();
+      assertTrue(iter2.atEnd());      
+   }
+
+   @Test public void addBeforeLast()
+   {
+      LinkedList names = new LinkedList();
+      names.addLast("Fred");
+      names.addLast("Wilma");
+      Iterator iter = names.iterator();
+      iter.next();
+      iter.add("Barney");
+      Iterator iter2 = names.iterator();
+      assertEquals("Fred", iter2.get());
+      iter2.next();
+      assertEquals("Barney", iter2.get());
+      iter2.next();
+      assertEquals("Wilma", iter2.get());
+      iter2.next();
+      assertTrue(iter2.atEnd());      
+   }
+
+   @Test public void addLast()
+   {
+      LinkedList names = new LinkedList();
+      names.addLast("Fred");
+      names.addLast("Wilma");
+      Iterator iter = names.iterator();
+      iter.next();
+      iter.next();
+      iter.add("Barney");
+      Iterator iter2 = names.iterator();
+      assertEquals("Fred", iter2.get());
+      iter2.next();
+      assertEquals("Wilma", iter2.get());
+      iter2.next();
+      assertEquals("Barney", iter2.get());
+      iter2.next();
+      assertTrue(iter2.atEnd());      
+   }
+
+   @Test public void removeFirst()
+   {
+      LinkedList words = new LinkedList();
+      words.addLast("Mary");
+      words.addLast("had");
+      words.addLast("a");
+      words.addLast("little");
+      words.addLast("lamb");
+      Iterator iter = words.iterator();
+      iter.remove();
+      Iterator iter2 = words.iterator();
+      assertEquals("had", iter2.get());
+      iter2.next();
+      assertEquals("a", iter2.get());
+      iter2.next();
+      assertEquals("little", iter2.get());
+      iter2.next();
+      assertEquals("lamb", iter2.get());
+      iter2.next();
+      assertTrue(iter2.atEnd());      
+   }
+
+   @Test public void removeLast()
+   {
+      LinkedList words = new LinkedList();
+      words.addLast("Mary");
+      words.addLast("had");
+      words.addLast("a");
+      words.addLast("little");
+      words.addLast("lamb");
+      Iterator iter = words.iterator();
+      iter.next();
+      iter.next();
+      iter.next();
+      iter.next();
+      iter.remove();
+      Iterator iter2 = words.iterator();
+      assertEquals("Mary", iter2.get());
+      iter2.next();
+      assertEquals("had", iter2.get());
+      iter2.next();
+      assertEquals("a", iter2.get());
+      iter2.next();
+      assertEquals("little", iter2.get());
+      iter2.next();
+      assertTrue(iter2.atEnd());      
+   }
+
+   @Test public void removeBeforeLast()
+   {
+      LinkedList words = new LinkedList();
+      words.addLast("Mary");
+      words.addLast("had");
+      words.addLast("a");
+      words.addLast("little");
+      words.addLast("lamb");
+      Iterator iter = words.iterator();
+      iter.next();
+      iter.next();
+      iter.next();
+      iter.remove();
+      Iterator iter2 = words.iterator();
+      assertEquals("Mary", iter2.get());
+      iter2.next();
+      assertEquals("had", iter2.get());
+      iter2.next();
+      assertEquals("a", iter2.get());
+      iter2.next();
+      assertEquals("lamb", iter2.get());
+      iter2.next();
+      assertTrue(iter2.atEnd());      
+   }
+
+   @Test public void removeTwo()
+   {
+      LinkedList words = new LinkedList();
+      words.addLast("Mary");
+      words.addLast("had");
+      words.addLast("a");
+      words.addLast("little");
+      words.addLast("lamb");
+      Iterator iter = words.iterator();
+      iter.next();
+      iter.remove();
+      iter.remove();
+      iter.remove();
+      Iterator iter2 = words.iterator();
+      assertEquals("Mary", iter2.get());
+      iter2.next();
+      assertEquals("lamb", iter2.get());
+      iter2.next();
+      assertTrue(iter2.atEnd());      
+   }
+}

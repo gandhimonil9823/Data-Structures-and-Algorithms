@@ -1,0 +1,49 @@
+A math puzzle has a form such as 2BCD+BCDE=DA01. We want to find a solution, where A, B, C, D are distinct digits, different from any digits in the puzzle. Here, a solution is 2345+3456=5801. In general, a puzzle can have any combination of up to ten digits and numbers.
+
+Write a recursive method for computing the solutions to such a puzzle.
+
+Draft: Just complete the Puzzle class—no recursion yet. It should pass the tester.
+
+Use the following file:
+
+PuzzleTester.java
+
+public class PuzzleTester {
+    public static void main(String[] args){
+        Puzzle p0 = new Puzzle("3A6", "36A", "71B");
+        Puzzle p1 = new Puzzle("3A6", "36B", "71C");
+        Puzzle p2 = new Puzzle("234", "567", "801");
+        Puzzle p3 = new Puzzle("321", "654", "300");
+        Puzzle p4 = new Puzzle("234", "067", "301");
+
+        System.out.println(p0.replace("A", 4));
+        System.out.println("Expected: 346+364=71B");
+
+        System.out.println(p1.replace("C", 4));
+        System.out.println("Expected: 3A6+36B=714");
+        
+        System.out.println(p1.firstLetter());
+        System.out.println("Expected: A");
+        
+        System.out.println(p3.firstLetter().length());
+        System.out.println("Expected: 0");
+
+        System.out.println(p1.contains(3));
+        System.out.println("Expected: true");
+        
+        System.out.println(p1.contains(4));
+        System.out.println("Expected: false");
+        
+        System.out.println(p1.isSolved());
+        System.out.println("Expected: false");
+
+        System.out.println(p2.isSolved());
+        System.out.println("Expected: true");
+        
+        System.out.println(p3.isSolved());
+        System.out.println("Expected: false");
+               
+        System.out.println(p4.isSolved());
+        System.out.println("Expected: false");
+    }
+}

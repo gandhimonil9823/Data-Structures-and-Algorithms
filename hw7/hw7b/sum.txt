@@ -1,0 +1,96 @@
+The Bulgarian sort method relies on the fact that it's easy to sort an array of length 3. If a[0] and a[1] are out of order, swap them. If a[1] and a[2] are out of order, swap them. One more compare-and-swap (that you get to figure out), and you are done.
+
+Implement the following algorithm:
+
+While the array is not sorted
+   For each adjacent triple of elements starting at 0, 2, 4, 6, ...
+      Sort the triple
+Submit a file BulgarianSorter.java. In the draft, just implement the sortTriple method.
+
+Use the following files:
+
+BulgarianSortTest.java
+
+import java.util.*;
+import org.junit.*;
+import static org.junit.Assert.*;
+
+public class BulgarianSortTest
+{
+   @Test
+   public void testSort3()
+   {
+      int[] nums = { 1, 2, 3, 1, 3, 2, 2, 1, 3, 2, 3, 1, 3, 1, 2, 3, 2, 1 };
+      for (int i = 0; i < nums.length; i = i + 3)
+         BulgarianSorter.sortThree(nums, i);
+
+      // Now nums should be 1 2 3 1 2 3 1 2 3 ...
+      for (int i = 0; i < nums.length; i = i + 3)
+         for (int j = 1; j <= 3; j++)
+            assertEquals(j, nums[i + j - 1]);
+   }
+
+   @Test
+   public void testSort2()
+   {
+      int[] nums = { 1, 3, 2 };
+      BulgarianSorter.sortThree(nums, 1);
+      assertArrayEquals(new int[] { 1, 2, 3 }, nums);
+      BulgarianSorter.sortThree(nums, 1);
+      assertArrayEquals(new int[] { 1, 2, 3 }, nums);
+   }
+
+   @Test
+   public void testSort1()
+   {
+      int[] nums = { 1, 3, 2 };
+      BulgarianSorter.sortThree(nums, 2);
+      assertArrayEquals(new int[] { 1, 3, 2 }, nums);
+   }
+}
+BulgarianSortTest2.java
+
+import java.util.*;
+import org.junit.*;
+import static org.junit.Assert.*;
+
+public class BulgarianSortTest2
+{
+   @Test
+   public void testLength9()
+   {
+      int[] nums = { 1, 2, 3, 6, 5, 4, 8, 9, 7 };
+      BulgarianSorter.sort(nums);
+      for (int i = 0; i < nums.length; i++)
+         assertEquals(i + 1, nums[i]);
+   }
+
+   @Test
+   public void testLength10()
+   {
+      int[] nums = { 1, 2, 3, 6, 5, 4, 10, 8, 9, 7 };
+      BulgarianSorter.sort(nums);
+      for (int i = 0; i < nums.length; i++)
+         assertEquals(i + 1, nums[i]);
+   }
+
+   @Test
+   public void testLength11()
+   {
+      int[] nums = { 1, 2, 11, 3, 6, 5, 4, 10, 8, 9, 7 };
+      BulgarianSorter.sort(nums);
+      for (int i = 0; i < nums.length; i++)
+         assertEquals(i + 1, nums[i]);
+   }
+
+   @Test
+   public void testOtherValues()
+   {
+      int[] nums = new int[101];
+      for (int i = 1; i < nums.length; i++) 
+         nums[(31 * i) % nums.length] = i * i;
+      BulgarianSorter.sort(nums);
+      for (int i = 0; i < nums.length; i++)
+         assertEquals(i * i, nums[i]);
+   }
+}

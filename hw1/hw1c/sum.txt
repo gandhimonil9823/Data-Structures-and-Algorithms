@@ -1,0 +1,76 @@
+Implement the Onetime, Daily, and Monthly classes of Exercise P9.1 in your textbook. For the draft, just provide Daily.
+Use the following files:
+
+Appointment.java
+
+/**
+   A class to keep track of an appointment.
+*/
+public abstract class Appointment
+{
+   private String description;
+
+   /**
+      Constructs an appointment without a description.
+   */
+   public Appointment()
+   {
+      description = "";
+   }
+
+   /**
+      Sets the description of this appointment.
+      @param description the text description of the appointment
+   */
+   public void setDescription(String description)
+   {
+      this.description = description;
+   }
+
+   /**
+      Determines if this appointment occurs on the given date.
+      @param year the year
+      @param month the month
+      @param day the day
+      @return true if the appointment occurs on the given date.
+   */
+   public abstract boolean occursOn(int year, int month, int day);
+
+   /**
+      Converts appointment to string description.
+   */
+   public String toString()
+   {
+      return description;
+   }
+}
+AppointmentDemo.java
+
+import java.util.Scanner;
+
+/**
+   Demonstration of the appointment classes
+*/
+public class AppointmentDemo
+{
+   public static void main(String[] args)
+   {
+      Appointment[] appointments = new Appointment[4];
+      appointments[0] = new Daily("Brush your teeth.");
+      appointments[1] = new Monthly(1, "Visit grandma.");
+      appointments[2] = new Onetime(2015, 11, 1, "Dentist appointment.");
+      appointments[3] = new Onetime(2015, 10, 31, "Trick or Treat.");
+
+      Scanner in = new Scanner(System.in);
+      int year = in.nextInt();
+      int month = in.nextInt();
+      int day = in.nextInt();
+      for (Appointment a : appointments)
+      {
+         if (a.occursOn(year, month, day))
+         {
+            System.out.println(a);
+         }
+      }
+   }
+}

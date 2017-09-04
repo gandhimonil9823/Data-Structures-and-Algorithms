@@ -1,0 +1,7 @@
+Draft
+
+Passes tester: 2 points
+
+Final
+
+Each test case 2 points

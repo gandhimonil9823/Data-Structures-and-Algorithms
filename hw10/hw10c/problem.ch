@@ -1,0 +1,8 @@
+〈div
+  〈p Those Java list iterators are a bit weird, with the “you can't call remove unless you previously called next or previous” rule. And that's a Java thing. In the rest of the known universe (for example, in C++), one can call remove as often as one likes.〉
+  〈p Those iterators are much better. They follow the advice of Section 8.2.3 “Separating Accessors and Mutators” of your textbook. They separate movement from lookup. The 〈 next〉 method moves the iterator and returns nothing. The 〈 get〉 method yields what's at the iterator. The 〈 remove〉 method removes what's at the iterator, causing it to point to the next element. And sure, then you can call it again, and it removes that element. The 〈 add〉 method adds before the iterator (just like with Java iterators). The 〈 atEnd〉 method states if the iterator is already at the end of the list (in which case 〈 get/remove/next〉 should throw a 〈 NoSuchElementException〉).〉
+  〈p It's simple. There is just one catch. It only works with doubly-linked lists. Not a problem in 2015. Or 1995. So, go ahead and implement that.〉
+  〈p Tip: This is 〈em much〉 simpler than the complex implementation of the iterator in Worked Example 16.1. Don't even try to start with that. Instead, simply set 〈 position〉 to the current position of the iterator. It can point to any of the elements of the list, or it could be 〈 null〉, in which case it points past the end.〉
+  〈p For simplicity, we omit the 〈 set〉, 〈 previous〉, and 〈 hasPrevious〉 methods.〉
+  〈p For the draft, just implement 〈 next〉, 〈 atEnd〉, and 〈 get〉. You don't need to know anything about doubly-linked lists to do that.〉
+〉

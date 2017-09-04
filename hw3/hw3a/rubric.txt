@@ -1,0 +1,7 @@
+Draft: 
+
+1 point per passing test case
+
+Final:
+
+3 points per passing test case

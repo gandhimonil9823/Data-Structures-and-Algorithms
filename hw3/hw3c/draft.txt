@@ -1,0 +1,3 @@
+Prints the words in test1.in (max 2 points).
+
+-1 if zip file had wrong name

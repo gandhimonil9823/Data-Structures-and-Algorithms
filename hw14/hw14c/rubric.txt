@@ -1,0 +1,2 @@
+Draft: -1 for each failing test case
+Final: -1 for each failing test case

@@ -1,0 +1,2 @@
+-2 per failing test case
+-6 if solution doesn't use provided structure, with no null checks other than the one provided 
